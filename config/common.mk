@@ -54,7 +54,6 @@ PRODUCT_COPY_FILES += \
     vendor/slim/prebuilt/common/etc/sysctl.conf:system/etc/sysctl.conf
 
 PRODUCT_COPY_FILES += \
-    vendor/slim/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
     vendor/slim/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit \
     vendor/slim/prebuilt/common/bin/sysinit:system/bin/sysinit
 
@@ -93,7 +92,6 @@ PRODUCT_PACKAGES += \
     SlimCenter \
     SlimFileManager \
     LatinIME \
-    SlimIRC \
     BluetoothExt \
     DashClock
 
@@ -142,22 +140,17 @@ PRODUCT_COPY_FILES += \
 endif
 
 # Versioning System
-# KitKat SlimKat beta releases
+# MIRAGE KAT YO?
 PRODUCT_VERSION_MAJOR = 4.4.2
 PRODUCT_VERSION_MINOR = beta
-PRODUCT_VERSION_MAINTENANCE = 1.7
+PRODUCT_VERSION_MAINTENANCE = 0.0.7
 ifdef SLIM_BUILD_EXTRA
     SLIM_POSTFIX := -$(SLIM_BUILD_EXTRA)
 endif
-ifndef SLIM_BUILD_TYPE
-    SLIM_BUILD_TYPE := UNOFFICIAL
-    PLATFORM_VERSION_CODENAME := UNOFFICIAL
-    SLIM_POSTFIX := -$(shell date +"%Y%m%d-%H%M")
-endif
 
 # Set all versions
-SLIM_VERSION := Slim-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(SLIM_BUILD_TYPE)$(SLIM_POSTFIX)
-SLIM_MOD_VERSION := Slim-$(SLIM_BUILD)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(SLIM_BUILD_TYPE)$(SLIM_POSTFIX)
+SLIM_VERSION := MIRAGE-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(SLIM_BUILD_TYPE)$(SLIM_POSTFIX)
+SLIM_MOD_VERSION := MIRAGE-$(SLIM_BUILD)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(SLIM_BUILD_TYPE)$(SLIM_POSTFIX)
 
 PRODUCT_PROPERTY_OVERRIDES += \
     BUILD_DISPLAY_ID=$(BUILD_ID) \
