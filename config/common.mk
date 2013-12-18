@@ -55,6 +55,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     vendor/slim/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit \
+    vendor/slim/prebuilt/common/etc/init.d/98garbage:system/etc/init.d/98garbage \
     vendor/slim/prebuilt/common/bin/sysinit:system/bin/sysinit
 
 # Workaround for NovaLauncher zipalign fails
@@ -89,8 +90,6 @@ PRODUCT_PACKAGES += \
 
 # Extra Optional packages
 PRODUCT_PACKAGES += \
-    SlimCenter \
-    SlimFileManager \
     LatinIME \
     BluetoothExt \
     DashClock
@@ -142,19 +141,15 @@ endif
 # Versioning System
 # MIRAGE KAT YO?
 PRODUCT_VERSION_MAJOR = 4.4.2
-PRODUCT_VERSION_MINOR = beta
+PRODUCT_VERSION_MINOR = UNIQUE
 PRODUCT_VERSION_MAINTENANCE = 0.0.7
-ifdef SLIM_BUILD_EXTRA
-    SLIM_POSTFIX := -$(SLIM_BUILD_EXTRA)
-endif
 
 # Set all versions
-SLIM_VERSION := MIRAGE-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(SLIM_BUILD_TYPE)$(SLIM_POSTFIX)
-SLIM_MOD_VERSION := MIRAGE-$(SLIM_BUILD)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(SLIM_BUILD_TYPE)$(SLIM_POSTFIX)
+MIRAGE_VERSION := MIRAGE-OS$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).v$(PRODUCT_VERSION_MAINTENANCE)
+MIRAGE_MOD_VERSION := MIRAGE-$(SLIM_BUILD)-OS$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).v$(PRODUCT_VERSION_MAINTENANCE)
 
 PRODUCT_PROPERTY_OVERRIDES += \
     BUILD_DISPLAY_ID=$(BUILD_ID) \
-    slim.ota.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE) \
-    ro.slim.version=$(SLIM_VERSION) \
-    ro.modversion=$(SLIM_MOD_VERSION)
+    ro.mirage.version=$(MIRAGE_VERSION) \
+    ro.modversion=$(MIRAGE_MOD_VERSION)
 

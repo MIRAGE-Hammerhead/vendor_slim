@@ -1,0 +1,7 @@
+#!/system/bin/sh
+# Jot it down yourself
+# drop garbage in caches
+busybox rm -f /cache/*.apk
+busybox rm -f /cache/*.tmp
+busybox rm -f /data/dalvik-cache/*.apk
+busybox rm -f /data/dalvik-cache/*.tmp
